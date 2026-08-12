@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group = 'com.umb.taller'
-version = '1.0.0'
+group = 'com.umb'
+version = '1.0'
 
 repositories {
     mavenCentral()
@@ -11,12 +11,6 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
 }
 
 test {
