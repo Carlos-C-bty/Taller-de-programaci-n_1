@@ -2,11 +2,24 @@ package com.umb.taller.domain;
 
 public class Enrollment {
 
-    private Student student;
-    private String courseName;
+    private final Student student;
+    private final String courseName;
     private double grade;
 
     public Enrollment(Student student, String courseName) {
+
+        if (student == null) {
+            throw new IllegalArgumentException(
+                    "Student cannot be null"
+            );
+        }
+
+        if (courseName == null || courseName.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Course name cannot be empty"
+            );
+        }
+
         this.student = student;
         this.courseName = courseName;
         this.grade = 0.0;
@@ -25,6 +38,7 @@ public class Enrollment {
     }
 
     public void setGrade(double grade) {
+
         if (grade < 0 || grade > 5) {
             throw new IllegalArgumentException(
                     "Grade must be between 0 and 5"
