@@ -1,7 +1,8 @@
 package com.umb.taller.domain;
+
 public abstract class Person {
 
-    private String id;
+    private final String id;
     private String name;
     private String email;
 
@@ -23,7 +24,19 @@ public abstract class Person {
         return email;
     }
 
+    public void setName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+
+        this.name = name;
+    }
+
     public void setEmail(String email) {
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email cannot be empty");
+        }
+
         this.email = email;
     }
 
