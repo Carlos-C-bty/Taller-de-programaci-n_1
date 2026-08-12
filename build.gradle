@@ -10,7 +10,16 @@ repositories {
 }
 
 dependencies {
+
+    // SLF4J - Logging
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'org.slf4j:slf4j-simple:2.0.16'
+
+    // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    // AssertJ
+    testImplementation 'org.assertj:assertj-core:3.26.3'
 }
 
 test {
