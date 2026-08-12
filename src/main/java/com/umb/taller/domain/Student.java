@@ -1,5 +1,7 @@
 package com.umb.taller.domain;
 
+import com.umb.taller.domain.exception.ValidationException;
+
 public class Student extends Person {
 
     private final String studentCode;
@@ -14,14 +16,18 @@ public class Student extends Person {
 
         super(id, name, email);
 
-        if (studentCode == null || studentCode.isBlank()) {
-            throw new IllegalArgumentException(
+        if (studentCode == null ||
+                studentCode.isBlank()) {
+
+            throw new ValidationException(
                     "Student code cannot be empty"
             );
         }
 
-        if (program == null || program.isBlank()) {
-            throw new IllegalArgumentException(
+        if (program == null ||
+                program.isBlank()) {
+
+            throw new ValidationException(
                     "Program cannot be empty"
             );
         }
@@ -39,8 +45,11 @@ public class Student extends Person {
     }
 
     public void setProgram(String program) {
-        if (program == null || program.isBlank()) {
-            throw new IllegalArgumentException(
+
+        if (program == null ||
+                program.isBlank()) {
+
+            throw new ValidationException(
                     "Program cannot be empty"
             );
         }
