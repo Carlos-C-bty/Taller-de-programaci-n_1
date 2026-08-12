@@ -2,7 +2,7 @@ package com.umb.taller.domain;
 
 public class Professor extends Person {
 
-    private String employeeCode;
+    private final String employeeCode;
     private String department;
 
     public Professor(
@@ -13,6 +13,19 @@ public class Professor extends Person {
             String department) {
 
         super(id, name, email);
+
+        if (employeeCode == null || employeeCode.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Employee code cannot be empty"
+            );
+        }
+
+        if (department == null || department.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Department cannot be empty"
+            );
+        }
+
         this.employeeCode = employeeCode;
         this.department = department;
     }
@@ -23,6 +36,16 @@ public class Professor extends Person {
 
     public String getDepartment() {
         return department;
+    }
+
+    public void setDepartment(String department) {
+        if (department == null || department.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Department cannot be empty"
+            );
+        }
+
+        this.department = department;
     }
 
     @Override
