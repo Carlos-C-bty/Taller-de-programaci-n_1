@@ -7,7 +7,7 @@ public class Student extends Person {
 
     public Student(
             String id,
-            String name,
+            String name,S
             String email,
             String studentCode,
             String program) {
